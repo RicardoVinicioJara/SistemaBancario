@@ -1,4 +1,4 @@
-package ec.edu.ups.preuba.sistemabancario.test;
+package ec.edu.ups.proyecto.sistemabancario1.test;
 
 import java.io.File;
 
@@ -29,14 +29,14 @@ public class SampleIT {
     @Deployment
     public static Archive<?> getEarArchive() {
         // Import the web archive that was created by Maven:
-        File f = new File("./target/SistemaBancario.war");
+        File f = new File("./target/SistemaBancario1.war");
         if (f.exists() == false) {
             throw new RuntimeException("File " + f.getAbsolutePath() + " does not exist.");
         }
-        WebArchive war = ShrinkWrap.create(ZipImporter.class, "SistemaBancario.war").importFrom(f).as(WebArchive.class);
+        WebArchive war = ShrinkWrap.create(ZipImporter.class, "SistemaBancario1.war").importFrom(f).as(WebArchive.class);
         
         // Add the package containing the test classes:
-        war.addPackage("ec.edu.ups.preuba.sistemabancario.test");
+        war.addPackage("ec.edu.ups.proyecto.sistemabancario1.test");
 
         // Export the WAR file to examine it in case of problems:
         // war.as(ZipExporter.class).exportTo(new File("c:\\temp\\test.war"), true);
